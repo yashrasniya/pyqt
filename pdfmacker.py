@@ -190,8 +190,7 @@ class Summit:
         self.add(gst_va)
         print("----------------M------------------1--")
 
-        # calculation.clculation.replace("self", self.invoic_number)
-
+        
         os.chdir('C:\\Users\\User\\Desktop')
         self.pdf.save()
         print("-------------------------Ok--------------------------")
