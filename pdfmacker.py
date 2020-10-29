@@ -88,9 +88,10 @@ class Summit:
             total = 0
             count = 0
             for gst in self.list_name:
-                total = gst[1] + total
+                print(gst[1])
+                total = int(gst[1]) + total
                 count += 1
-            self.gst = total / count
+            self.gst = int(total / count)
 
         self.pdf.setFontSize(9)
         self.name = self.name.upper()
@@ -199,8 +200,10 @@ class Summit:
         gst = int(gst)
         gst_va_haff = gst / 2
         gst_va_haff_str = str("%.0f" % gst_va_haff)
-
-        gst = int(self.gst_in_percentage)
+        try:
+            gst = int(self.gst_in_percentage)
+        except:
+            gst=self.gst
         gst_div = gst / 2
         gst_str = str(gst_div)
         gst_str = str(gst / 2)

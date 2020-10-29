@@ -827,3 +827,75 @@
                     qui            64
                     rate           6
                     size           64 
+                  Invoice No.       
+                    Invoic date     
+                    Name           
+                    address          
+                    gst_in%           
+                    state           
+                    gstin          
+                    state code     
+                    name fo the pro
+                    qui            64
+                    rate           6
+                    size           64 
+                  Invoice No.      4 
+                    Invoic date     
+                    Name           
+                    address          
+                    gst_in%           
+                    state           
+                    gstin          
+                    state code     
+                    name fo the pro
+                    qui            64
+                    rate           6
+                    size           64 
+                  Invoice No.       
+                    Invoic date     
+                    Name           
+                    address          
+                    gst_in%           
+                    state           
+                    gstin          
+                    state code     
+                    name fo the pro
+                    qui            6464
+                    rate           64
+                    size           464 
+                  Invoice No.       
+                    Invoic date     
+                    Name           
+                    address          
+                    gst_in%           
+                    state           
+                    gstin          
+                    state code     
+                    name fo the pro
+                    qui            6446
+                    rate           46
+                    size           64 
+                  Invoice No.       
+                    Invoic date     
+                    Name           
+                    address          
+                    gst_in%           
+                    state           
+                    gstin          
+                    state code     
+                    name fo the pro
+                    qui            12
+                    rate           12
+                    size           12 
+                  Invoice No.       
+                    Invoic date     
+                    Name           
+                    address          
+                    gst_in%           
+                    state           
+                    gstin          
+                    state code     
+                    name fo the pro
+                    qui            46
+                    rate           64
+                    size           50 
