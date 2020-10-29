@@ -192,7 +192,7 @@ class Summit:
 
         # calculation.clculation.replace("self", self.invoic_number)
 
-        os.chdir('C:\\Users\\User\\PycharmProjects\\pyqt\\test_pdf')
+        os.chdir('C:\\Users\\User\\Desktop')
         self.pdf.save()
         print("-------------------------Ok--------------------------")
 
