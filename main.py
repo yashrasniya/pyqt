@@ -88,9 +88,11 @@ class my_cal(QMainWindow):
 
         save_menu = QAction('save', self)
         open_menu = QAction('open', self)
+        save_as_pdf = QAction('Make pdf', self)
 
         save_menu.triggered.connect(lambda: self.save_as())
         open_menu.triggered.connect(lambda: self.open())
+        save_as_pdf.triggered.connect(lambda: self.creating_pdf())
 
         self.actionCopy = QtWidgets.QAction(self)
 
@@ -106,6 +108,7 @@ class my_cal(QMainWindow):
         fileMenu.addAction(newAct)
         fileMenu.addAction(save_menu)
         fileMenu.addAction(open_menu)
+        fileMenu.addAction(save_as_pdf)
         menubar.show()
 
     def top_entrys(self):
@@ -193,7 +196,16 @@ class my_cal(QMainWindow):
         self.all_entry_list.append(en)
         print(self.all_entry_list)
         self.all_entry_list[-1][-1].returnPressed.connect(self.entry)  # when press enter it create a row
+        try:
+            self.total.deleteLater()
+        except AttributeError:
+            print("erro")
+        self.total=QtWidgets.QLabel(self)
+        self.total.setFont(QFont('Arial', 15))
+        self.total.setGeometry(self.i[-1], self.y[-1]+50 + 5, 100, 30)
 
+        self.total.setText(" Total:0.0   Total withgst:0.0")
+        self.total.show()
     def loop(self):
         # ---------------- for loopcution in side the entry-------------------------------------
 
@@ -207,10 +219,10 @@ class my_cal(QMainWindow):
             try:
                 if self.all_entry_list[num][-2].text() != "" and self.all_entry_list[num][-3].text() != "" and \
                         self.all_entry_list[num][-1].text() != "":
-                    self.get_qut.append(int(self.all_entry_list[num][-2].text()))  # getting entry3
-                    self.get_rate.append(int(self.all_entry_list[num][-1].text()))  # geting entry4
-                    self.get_size.append(int(self.all_entry_list[num][-3].text()))
-                    self.get_gst.append(int(self.all_entry_list[num][-4].text()))  # getting entry2
+                    self.get_qut.append(float(self.all_entry_list[num][-2].text()))  # getting entry3
+                    self.get_rate.append(float(self.all_entry_list[num][-1].text()))  # geting entry4
+                    self.get_size.append(float(self.all_entry_list[num][-3].text()))
+                    self.get_gst.append(float(self.all_entry_list[num][-4].text()))  # getting entry2
                 else:
                     print(self.all_entry_list[num][-2].text())
             except:
@@ -236,12 +248,17 @@ class my_cal(QMainWindow):
                 print(":")
                 print("::")
                 pre = nass + ks
-                with_gst_total = (nass * gst) / 100 + with_gst_total
+                with_gst_total = nass+((nass * gst) / 100) + with_gst_total
 
                 self.totle_list_label[self.nos].setText(
-                    f"without gst:{nass}    withgst:{(nass * gst) / 100}    Total:{pre}    Total withgst:{with_gst_total}")  # show the data as label
+                    f"without gst:{'%.0f' % nass}    withgst:{nass+((nass * gst)/100)}    ")  # show the data as label
                 self.totle_list_label[self.nos].adjustSize()
                 self.totle_list_label[self.nos].show()
+                #----------------------------------------full total label-----------------------------------------------
+                self.total.setText(f"Total:{'%.0f' % pre}    Total withgst:{ with_gst_total}")
+                self.total.adjustSize()
+                self.total.show()
+
                 ks = pre
                 self.nos += 1
         except TypeError:
@@ -256,8 +273,8 @@ class my_cal(QMainWindow):
             time.start()  # start the loop
 
     def geting_all_values(self):
-        self.start = False
-        # -------------------------------------geting all values by entrys------------------------------------
+        # self.start = False
+        # -------------------------------------getting all values entry's---------------------------------
         self.geting_values_of_top_list = []
         self.data_all_entry_list = []
         for vaues in self.top_entry:

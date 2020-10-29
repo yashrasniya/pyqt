@@ -13,7 +13,6 @@ from reportlab.pdfgen import canvas
 class Summit:
     def __init__(self, list_of_top_entrys, list_of_all_entrys):
 
-
         self.list_of_top_entrys = list_of_top_entrys
         self.list_of_all_entrys = list_of_all_entrys
 
@@ -22,10 +21,7 @@ class Summit:
         print(self.list_of_all_entrys)
         self.datetime = self.cal.time()
 
-
-
         self.init()
-
 
     def init(self):
         self.start()
@@ -48,7 +44,6 @@ class Summit:
         self.pdf = canvas.Canvas(f"{self.name}{self.datetime}.pdf")
         self.pdf.drawImage('pdf_3.jpg', 0, 00, width=595.276, height=841.89)
 
-
     def data_saver_in_data_basses(self):
         self.one = sqlite3.connect("one.db")
         self.cursor = self.one.cursor()
@@ -59,7 +54,7 @@ class Summit:
             return
         finally:
             print(self.list_name)
-            for name, qui, rate, size in self.list_name:
+            for name, gst, size, qui, rate in self.list_name:
                 with open("histry.txt", "a") as file:
                     file.write(f"\n"
                                f"                  Invoice No.      {self.invoic_number} \n"
@@ -89,13 +84,12 @@ class Summit:
 
     def drawing_data(self):
 
-
         try:
             print(self.gst_in_percentage)
             self.gst = int(self.gst_in_percentage)
 
         except:
-            print("error",self.gst_in_percentage)
+            print("error", self.gst_in_percentage)
 
         self.pdf.setFontSize(9)
         self.name = self.name.upper()
@@ -120,22 +114,19 @@ class Summit:
         self.pdf.drawString(250, 600, "05")
         self.prooses()
 
-
     def prooses(self):
         y = 452
         num = 1
         totel = 0
         print(self.list_name)
-        for list, qty, rate, size in self.list_name:
-            qty,rate,size=int(qty),int(rate),int(size)
+        for list, gst1, size, qty, rate in self.list_name:
+            qty, rate, size = int(qty), int(rate), int(size)
             string = ""
             # for ls in list_sq[1:]:
             #     string += f" {ls} "
-            string="---"
+
 
             amount = size * (qty * rate)
-
-
 
             totel += amount
 
@@ -153,7 +144,7 @@ class Summit:
                 self.pdf.drawString(80, y, list_2)
 
                 self.pdf.drawString(372, y, f"{qty} ")
-                self.pdf.drawString(427, y, f"{rate}/-{string}")
+                self.pdf.drawString(427, y, f"{rate}/-")
                 self.pdf.drawString(482, y, f"{str(amount)}/-")
 
             else:
@@ -198,20 +189,14 @@ class Summit:
         self.add(gst_va)
         print("----------------M------------------1--")
 
-
         # calculation.clculation.replace("self", self.invoic_number)
 
         os.chdir('C:\\Users\\User\\PycharmProjects\\pyqt\\test_pdf')
         self.pdf.save()
         print("-------------------------Ok--------------------------")
 
-
-
-
-
-
     def add(self, gst):
-        gst=int(gst)
+        gst = int(gst)
         gst_va_haff = gst / 2
         gst_va_haff_str = str("%.0f" % gst_va_haff)
 
