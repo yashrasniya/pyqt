@@ -6,6 +6,7 @@ import pdfmacker
 import save
 from PyQt5 import QtWidgets, QtCore
 from PyQt5.QtWidgets import QMainWindow, QLineEdit, QApplication, QAction, QFileDialog
+from PyQt5.QtGui import QFont
 
 
 class my_cal(QMainWindow):
@@ -185,7 +186,7 @@ class my_cal(QMainWindow):
 
         self.totle_list_label.append(QtWidgets.QLabel(self))
         self.totle_list_label[-1].setGeometry(self.i[-1], self.y[-1] + 5, 100, 30)
-
+        self.totle_list_label[-1].setFont(QFont('Arial', 15))
         self.y.append(self.y[-1] + 50)
         self.totle_list_label[-1].setText("0.0")
         self.totle_list_label[-1].show()
