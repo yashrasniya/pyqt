@@ -303,5 +303,4 @@ def main():
         print("----------Error---------")
 
 
-main()
-root = Tk()
+

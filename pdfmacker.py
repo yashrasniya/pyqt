@@ -1,10 +1,6 @@
 import json
 import os
 import sqlite3
-import subprocess
-from tkinter import *
-from tkinter import filedialog
-from tkinter import messagebox
 
 import calculation
 from reportlab.pdfgen import canvas
@@ -89,7 +85,12 @@ class Summit:
             self.gst = int(self.gst_in_percentage)
 
         except:
-            print("error", self.gst_in_percentage)
+            total = 0
+            count = 0
+            for gst in self.list_name:
+                total = gst[1] + total
+                count += 1
+            self.gst = total / count
 
         self.pdf.setFontSize(9)
         self.name = self.name.upper()
@@ -124,7 +125,6 @@ class Summit:
             string = ""
             # for ls in list_sq[1:]:
             #     string += f" {ls} "
-
 
             amount = size * (qty * rate)
 
@@ -209,135 +209,3 @@ class Summit:
         self.pdf.drawString(90, 202, f"{gst_va_haff_str}")
         self.pdf.drawString(113, 216, f"{gst_str}")
         self.pdf.drawString(183, 216, f"{gst_str}")
-#
-#
-# class Show:
-#     def __init__(self, e1, e2, e3, e4, e5, e5_1, e7, e8, e8_1, e9, oid):
-#         self.invoic_number = e1
-#
-#         self.date = e2
-#         self.name = e3
-#         self.address = e4
-#         self.gst_in_percentage = e5
-#         self.gst_number = e5_1
-#         self.entry_7 = e7
-#         self.entry_8 = e8
-#         self.entry_8_1 = e8_1
-#         self.entry_9 = e9
-#         self.entry_oid = oid
-#         self.histryshow()
-#
-#     def histryshow(self):
-#         m = 0
-#         oid = self.entry_oid.get()
-#
-#         one = sqlite3.connect("one.db")
-#         cursor = one.cursor()
-#         cursor.execute(f"SELECT oid FROM histry_profile_4 ")
-#         number = cursor.fetchall()
-#
-#         if not f"{oid}," in f"{str(number)}":
-#             messagebox.showerror("ERROR", "ENTER IN VALUE IN oid num BOX#")
-#             return
-#         else:
-#             m += 1
-#
-#         cursor.execute(f"SELECT * FROM histry_profile_4 WHERE oid=:oid",
-#                        {"oid": oid}
-#                        )
-#         value = cursor.fetchall()
-#         self.invoic_number.delete(0, last=1000)
-#         self.address.delete(0, last=1000)
-#         self.gst_number.delete(0, last=1000)
-#         self.gst_in_percentage.delete(0, last=1000)
-#         self.name.delete(0, last=1000)
-#         self.date.delete(0, last=1000)
-#         for value in value:
-#             self.address.insert(0, value[1])
-#             self.gst_number.insert(0, value[2])
-#             self.gst_in_percentage.insert(0, value[3])
-#             self.name.insert(0, value[4])
-#             self.date.insert(0, value[5])
-#
-#         row = 1
-#         num = 1
-#         try:
-#             joky = json.loads(value[6])
-#             self.root_1 = Tk()
-#             size = "200"
-#             if len(json.loads(value[6])) > 5:
-#                 size = str(200 + (20 * len(json.loads(value[6]))))
-#             self.root_1.geometry(f"200x{size}")
-#
-#             m += 1
-#             label_show = Label(self.root_1, text="S.No")
-#             label_show_1 = Label(self.root_1, text="Name")
-#
-#             label_show_2 = Label(self.root_1, text="Qty")
-#             label_show_3 = Label(self.root_1, text="Rate")
-#             label_show_4 = Label(self.root_1, text="size")
-#             label_show.grid(row=0, column=0)
-#             label_show_1.grid(row=0, column=1)
-#             label_show_2.grid(row=0, column=2)
-#             label_show_3.grid(row=0, column=3)
-#             label_show_4.grid(row=0, column=4)
-#             list_k = 0
-#             for ks in json.loads(value[6]):
-#                 print(ks)
-#                 label = Label(self.root_1, text=f"{num}")
-#                 label.grid(row=row, column=0)
-#                 label = Label(self.root_1, text=f"{ks[0]}")
-#                 label.grid(row=row, column=1)
-#                 label = Label(self.root_1, text=f"{ks[1]}")
-#                 label.grid(row=row, column=2)
-#                 label = Label(self.root_1, text=f"{ks[2]}")
-#                 label.grid(row=row, column=3)
-#                 label = Label(self.root_1, text=f"{ks[3]}")
-#
-#                 label.grid(row=row, column=4)
-#                 row += 1
-#                 list_k += 1
-#                 num += 1
-#         except:
-#             messagebox.showerror("ERROR", "ENTER IN VALUE IN oid num BOX#")
-#             return
-#         label_show_4 = Label(self.root_1, text="Num:-")
-#         label_show_4.grid(row=row, column=0)
-#
-#         self.entry_rate = Entry(self.root_1)
-#         self.entry_rate.grid(row=row, column=1, columnspan=5)
-#         but = Button(self.root_1, text="show", command=lambda: self.happy(joky))
-#         but.grid(row=row + 1, column=1)
-#         one.commit()
-#         one.close()
-#         if m == 2:
-#             self.root_1.mainloop()
-#
-#     def happy(self, value):
-#
-#         print(value)
-#         try:
-#
-#             get = int(self.entry_rate.get()) - 1
-#
-#             print(get)
-#             if len(value) < get:
-#                 messagebox.showerror("ERROR", "ENTER WRITE VALUE")
-#
-#             self.entry_7.delete(0, 1000)
-#             self.entry_8.delete(0, 1000)
-#             self.entry_8_1.delete(0, 1000)
-#             self.entry_9.delete(0, 1000)
-#
-#             self.entry_7.insert(0, str(value[get][0]))
-#             self.entry_8.insert(0, str(value[get][1]))
-#             self.entry_9.insert(0, str(value[get][2]))
-#             self.entry_8_1.insert(0, str(value[get][3]))
-#
-#
-#
-#
-#         except TypeError:
-#             messagebox.showerror("ERROR", "ENTER WRITE VALUE")
-#         finally:
-#             self.root_1.destroy()
