@@ -12,7 +12,7 @@ from PyQt5.QtGui import QFont
 class my_cal(QMainWindow):
     def __init__(self):
         super(my_cal, self).__init__()
-        self.setGeometry(200, 200, 400, 400)
+        self.setGeometry(200, 200, 1000, 1000)
         self.setWindowTitle("Bill")
         self.start()
 
