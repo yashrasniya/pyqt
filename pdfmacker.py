@@ -193,7 +193,7 @@ class Summit:
 
         os.chdir(self.path)
 
-        os.chdir('C:\\Users\\User\\Desktop')
+
         self.pdf.save()
         print("-------------------------Ok--------------------------")
 
