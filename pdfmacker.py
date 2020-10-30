@@ -1,7 +1,6 @@
 import json
 import os
 import sqlite3
-from PyQt5.QtWidgets import QFileDialog
 import calculation
 from reportlab.pdfgen import canvas
 
@@ -193,6 +192,8 @@ class Summit:
         # calculation.clculation.replace("self", self.invoic_number)
 
         os.chdir(self.path)
+
+        os.chdir('C:\\Users\\User\\Desktop')
         self.pdf.save()
         print("-------------------------Ok--------------------------")
 
