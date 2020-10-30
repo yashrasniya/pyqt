@@ -18,17 +18,16 @@ class App(QWidget):
         self.setWindowTitle(self.title)
         self.setGeometry(self.left, self.top, self.width, self.height)
 
-        # self.openFileNameDialog()
+        self.openFileNameDialog()
         # self.openFileNamesDialog()
-        self.saveFileDialog()
+        # self.saveFileDialog()
 
         self.show()
 
     def openFileNameDialog(self):
         options = QFileDialog.Options()
         options |= QFileDialog.DontUseNativeDialog
-        fileName, _ = QFileDialog.getOpenFileName(self, "QFileDialog.getOpenFileName()", "",
-                                                  "All Files (*);;Python Files (*.py)", options=options)
+        fileName= QFileDialog.getExistingDirectory(self)
         if fileName:
             print(fileName)
 
@@ -36,7 +35,7 @@ class App(QWidget):
         options = QFileDialog.Options()
         options |= QFileDialog.DontUseNativeDialog
         files, _ = QFileDialog.getOpenFileNames(self, "QFileDialog.getOpenFileNames()", "",
-                                                "All Files (*);;Python Files (*.py)", options=options)
+                                                "All Files (*);;Python Files (*.py)")
         if files:
             print(files)
 

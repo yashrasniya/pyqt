@@ -1,14 +1,14 @@
 import json
 import os
 import sqlite3
-
+from PyQt5.QtWidgets import QFileDialog
 import calculation
 from reportlab.pdfgen import canvas
 
 
 class Summit:
-    def __init__(self, list_of_top_entrys, list_of_all_entrys):
-
+    def __init__(self, list_of_top_entrys, list_of_all_entrys,path):
+        self.path=path
         self.list_of_top_entrys = list_of_top_entrys
         self.list_of_all_entrys = list_of_all_entrys
 
@@ -192,7 +192,7 @@ class Summit:
 
         # calculation.clculation.replace("self", self.invoic_number)
 
-        os.chdir('C:\\Users\\User\\PycharmProjects\\pyqt\\test_pdf')
+        os.chdir(self.path)
         self.pdf.save()
         print("-------------------------Ok--------------------------")
 
@@ -203,7 +203,7 @@ class Summit:
         try:
             gst = int(self.gst_in_percentage)
         except:
-            gst=self.gst
+            gst = self.gst
         gst_div = gst / 2
         gst_str = str(gst_div)
         gst_str = str(gst / 2)

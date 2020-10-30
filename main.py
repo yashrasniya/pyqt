@@ -289,8 +289,9 @@ class my_cal(QMainWindow):
 
     def creating_pdf(self):
         self.geting_all_values()
+        path = QFileDialog.getExistingDirectory(self)
         pdfmacker.Summit(self.geting_values_of_top_list,
-                         self.data_all_entry_list)
+                         self.data_all_entry_list,path)
 
 
 def main():

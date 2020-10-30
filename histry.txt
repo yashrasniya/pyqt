@@ -899,3 +899,15 @@
                     qui            46
                     rate           64
                     size           50 
+                  Invoice No.       
+                    Invoic date     
+                    Name           
+                    address          
+                    gst_in%           
+                    state           
+                    gstin          
+                    state code     
+                    name fo the pro
+                    qui            1
+                    rate           3
+                    size           313 
