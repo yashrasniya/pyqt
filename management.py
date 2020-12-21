@@ -12,7 +12,7 @@ class Management:
 
             [
                 [
-                    ["yash", True, 999, 999, ], ["2", True, 999, 999, ], ["3", True, 999, 999, ],
+                    ["yash", True, 999, 999, ], ["happy", True, 999, 999, ], ["3", True, 999, 999, ],
                     ["4", True, 999, 999, ],
                     ["1", True, 999, 999, ], ["2", True, 999, 999, ], ["3", True, 999, 999, ], ["4", True, 999, 999, ],
                     ["1", True, 999, 999, ], ["2", True, 999, 999, ], ["3", True, 999, 999, ], ["4", True, 999, 999, ]
@@ -26,6 +26,7 @@ class Management:
         ]
         #     ============================================================================
         # main part=========================================================================
+        self.data_saverm = data_saver.data_saver("'name','x','y'", "data", "data")
         self.start_the_ui()
 
     def start_the_ui(self):
@@ -35,23 +36,26 @@ class Management:
         MainWindow = QtWidgets.QMainWindow()
         self.entry_list_name = self.ui_mainwindow.setupUi(MainWindow)
         MainWindow.show()
-        self.display_data()
+        try:
+            self.display_data()
+        except IndexError:
+            pass
         app.exec_()
-        self.fetching_data()
+        self.saving_or_updating_data()
 
     def do_something(self):
 
         pass
 
     def display_data(self):
-        self.data_saverm = data_saver.data_saver("'name ','x ','y '", "dat", "haahaa")
+
         data_saved = self.data_saverm.show()
         print(data_saved)
         self.ui_mainwindow.finding_output(self.entry_list_name,
                                           do_you_want_to_set_value=True, entry_values_list=data_saved)
         pass
 
-    def fetching_data(self):
+    def saving_or_updating_data(self):
         self.entry_data_filled_by_user = self.ui_mainwindow.finding_output(self.entry_list_name,
                                                                            do_you_want_to_set_value=False)
         a = 0
@@ -60,15 +64,26 @@ class Management:
             for data_of_entry in data_of_entry[0]:
                 name_of_entry = data_of_entry[0]
                 x_y_data = self.entry_data_filled_by_user[a][0]
-                self.saving_data(
-                    f"{a + 1},'{name_of_entry}',{self.entry_data_filled_by_user[a][0]},{self.entry_data_filled_by_user[a][1]}")
+               
+                try:
+                    self.saving_data(
+                        f"{a + 1},'{name_of_entry}',{self.entry_data_filled_by_user[a][0]},{self.entry_data_filled_by_user[a][1]}")
+
+                except :
+                    self.updating_data("name", name_of_entry, a + 1)
+                    self.updating_data("x", self.entry_data_filled_by_user[a][1], a + 1)
+                    self.updating_data("y", self.entry_data_filled_by_user[a][0], a + 1)
 
                 a += 1
 
+        pass  # sqlite3.IntegrityError
+
+    def updating_data(self, row_name, data_for_changering, oid_number):
+        self.data_saverm.update(f"{row_name}", f"'{data_for_changering}'", oid_number)
         pass
 
     def saving_data(self, string_type_data):
-        self.data_saverm = data_saver.data_saver("'name ','x ','y '", "dat", "haahaa")
+
         self.data_saverm.insert(string_type_data)
 
     def looop(self):

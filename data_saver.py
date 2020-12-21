@@ -60,6 +60,6 @@ class data_saver:
 # jj.update("'name TEXT'", "'happy'", "2")
 # print(jj.show())
 # print("ok")
-# data_saverm = data_saver("'name ','x ','y '", "dat", "haahaa")
+# data_saverm = data_saver("'name','x','y'", "data", "data")
 # haha=data_saverm.show()
 # print(haha)
