@@ -7,6 +7,7 @@ import save
 from PyQt5 import QtWidgets, QtCore
 from PyQt5.QtWidgets import QMainWindow, QLineEdit, QApplication, QAction, QFileDialog
 from PyQt5.QtGui import QFont
+import setting
 
 
 class my_cal(QMainWindow):
@@ -83,9 +84,10 @@ class my_cal(QMainWindow):
 
     def menu(self):
         menubar = self.menuBar()
+        newAct = QAction('New', self)
+        self.actionCopy = QtWidgets.QAction(self)
+        # =====================================================
         fileMenu = menubar.addMenu('File')
-        editMenu = menubar.addMenu('Edit')
-
         save_menu = QAction('save', self)
         open_menu = QAction('open', self)
         save_as_pdf = QAction('Make pdf', self)
@@ -94,22 +96,42 @@ class my_cal(QMainWindow):
         open_menu.triggered.connect(lambda: self.open())
         save_as_pdf.triggered.connect(lambda: self.creating_pdf())
 
-        self.actionCopy = QtWidgets.QAction(self)
-
+        fileMenu.addAction(newAct)
+        fileMenu.addAction(save_menu)
+        fileMenu.addAction(open_menu)
+        fileMenu.addAction(save_as_pdf)
+        # ======================================================
+        
+        # =======================================================
+        editMenu = menubar.addMenu('Edit')
         copy = editMenu.addMenu("Copy")
         paste = editMenu.addMenu("Paste")
         cut = editMenu.addMenu("Cut")
         self.actionCopy.setObjectName("actionCopy")
         copy.addAction(self.actionCopy)
 
-        newAct = QAction('New', self)
         _translate = QtCore.QCoreApplication.translate
+
         self.actionCopy.setShortcut(_translate("MainWindow", "Ctrl+C"))
-        fileMenu.addAction(newAct)
-        fileMenu.addAction(save_menu)
-        fileMenu.addAction(open_menu)
-        fileMenu.addAction(save_as_pdf)
-        menubar.show()
+        # =======================================================
+
+        # =======================================================
+        SettingsMenu = menubar.addMenu('Settings')
+
+        location_menu = QAction('location', self)
+
+        location_menu.triggered.connect(lambda: setting.start())
+
+        SettingsMenu.addAction(location_menu)
+        # ========================================================
+
+        # =======================================================
+        # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        # ========================================================
+        menubar.show()# //////////////////////////////////////////
+        # =======================================================
+        # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        # ========================================================
 
     def top_entrys(self):
 
@@ -151,7 +173,8 @@ class my_cal(QMainWindow):
                                  'Gst',
                                  'Size',
                                  'Quantity',
-                                 'Rate']
+                                 'Rate'
+                                 ]
         self.list_of_product_pyqt = []
         self.x_1.clear()
         self.x_1.append(0)
@@ -251,7 +274,7 @@ class my_cal(QMainWindow):
                 with_gst_total = nass+((nass * gst) / 100) + with_gst_total
 
                 self.totle_list_label[self.nos].setText(
-                    f"without gst:{'%.0f' % nass}    withgst:{nass+((nass * gst)/100)}    ")  # show the data as label
+                    f"without gst:{'%.0f' % nass}    withgst:{nass+((nass * gst)/100)}")  # show the data as label
                 self.totle_list_label[self.nos].adjustSize()
                 self.totle_list_label[self.nos].show()
                 #----------------------------------------full total label-----------------------------------------------

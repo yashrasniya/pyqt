@@ -39,6 +39,20 @@ class Summit:
         self.pdf = canvas.Canvas(f"{self.name}{self.datetime}.pdf")
         self.pdf.drawImage('pdf_3.jpg', 0, 00, width=595.276, height=841.89)
 
+    def ajestment(self, text, number):
+        cont_of_letter = len(text)
+        list_of_word = f"{text}".split(' ')
+        cont_of_word = len(list_of_word)
+        # ============================================================
+        # ============================================================
+        div_ans = cont_of_letter / number  # =========================
+        if int(f"{div_ans}".split(".")[1]) < 5:  # ===================
+            div_ans = +1  # ==========================================
+        div_ans = round(div_ans)  # ==================================
+        # ============================================================
+        # ============================================================
+
+        return div_ans
     def data_saver_in_data_basses(self):
         self.one = sqlite3.connect("one.db")
         self.cursor = self.one.cursor()

@@ -935,3 +935,423 @@
                     qui            64
                     rate           6
                     size           646 
+                  Invoice No.      01 
+                    Invoic date    6464 
+                    Name           34
+                    address         16 
+                    gst_in%           
+                    state          64 
+                    gstin          5464
+                    state code     496
+                    name fo the prodsfds
+                    qui            12
+                    rate           12
+                    size           20 
+                  Invoice No.      01 
+                    Invoic date    6464 
+                    Name           34
+                    address         16 
+                    gst_in%           
+                    state          64 
+                    gstin          5464
+                    state code     496
+                    name fo the prohng
+                    qui            6646
+                    rate           4
+                    size           464 
+                  Invoice No.      25 
+                    Invoic date    12-10-2020 
+                    Name           tulas international school
+                    address         Dehradun 
+                    gst_in%          18 
+                    state          uttarakhand 
+                    gstin          
+                    state code     05
+                    name fo the provinyl sheet 1.5'x1.5'
+                    qui            20
+                    rate           100
+                    size           1 
+                  Invoice No.      25 
+                    Invoic date    12-10-2020 
+                    Name           tulas international school
+                    address         Dehradun 
+                    gst_in%          18 
+                    state          uttarakhand 
+                    gstin          
+                    state code     05
+                    name fo the provinyl sheet 1.5'x1.5'
+                    qui            20
+                    rate           100
+                    size           1 
+                  Invoice No.      25 
+                    Invoic date    12-10-2020 
+                    Name           tulas international school
+                    address         Dehradun 
+                    gst_in%          18 
+                    state          uttarakhand 
+                    gstin          
+                    state code     05
+                    name fo the provinyl sheet 0.5'x100'
+                    qui            1
+                    rate           2000
+                    size           1 
+                  Invoice No.      25 
+                    Invoic date    12-10-2020 
+                    Name           tulas international school
+                    address         Dehradun 
+                    gst_in%          18 
+                    state          uttarakhand 
+                    gstin          
+                    state code     05
+                    name fo the proflex 2x3
+                    qui            4
+                    rate           90
+                    size           1 
+                  Invoice No.      25 
+                    Invoic date    12-10-2020 
+                    Name           tulas international school
+                    address         Dehradun 
+                    gst_in%          18 
+                    state          uttarakhand 
+                    gstin          
+                    state code     05
+                    name fo the profee stacher
+                    qui            150
+                    rate           10
+                    size           1 
+                  Invoice No.      25 
+                    Invoic date    12-10-2020 
+                    Name           tulas international school
+                    address         Dehradun 
+                    gst_in%          18 
+                    state          uttarakhand 
+                    gstin          
+                    state code     05
+                    name fo the prodg print m-color
+                    qui            6
+                    rate           15
+                    size           1 
+                  Invoice No.      25 
+                    Invoic date    12-10-2020 
+                    Name           tulas international school
+                    address         Dehradun 
+                    gst_in%          18 
+                    state          uttarakhand 
+                    gstin          
+                    state code     05
+                    name fo the prodg print
+                    qui            64
+                    rate           15
+                    size           1 
+                  Invoice No.      25 
+                    Invoic date    12-10-2020 
+                    Name           tulas international school
+                    address         Dehradun 
+                    gst_in%          18 
+                    state          uttarakhand 
+                    gstin          
+                    state code     05
+                    name fo the progumming sheet
+                    qui            25
+                    rate           25
+                    size           1 
+                  Invoice No.      25 
+                    Invoic date    12-10-2020 
+                    Name           tulas international school
+                    address         Dehradun 
+                    gst_in%          18 
+                    state          uttarakhand 
+                    gstin          
+                    state code     05
+                    name fo the prov-card
+                    qui            200
+                    rate           3
+                    size           1 
+                  Invoice No.      25 
+                    Invoic date    12-10-2020 
+                    Name           tulas international school
+                    address         Dehradun 
+                    gst_in%          18 
+                    state          uttarakhand 
+                    gstin          
+                    state code     05
+                    name fo the prov-card
+                    qui            200
+                    rate           3
+                    size           1 
+                  Invoice No.      25 
+                    Invoic date    12-10-2020 
+                    Name           tulas international school
+                    address         Dehradun 
+                    gst_in%          18 
+                    state          uttarakhand 
+                    gstin          
+                    state code     05
+                    name fo the provinyl sheet 1.5'x1.5'
+                    qui            20
+                    rate           100
+                    size           1 
+                  Invoice No.      25 
+                    Invoic date    12-10-2020 
+                    Name           tulas international school
+                    address         Dehradun 
+                    gst_in%          18 
+                    state          uttarakhand 
+                    gstin          
+                    state code     05
+                    name fo the provinyl sheet 1.5'x1.5'
+                    qui            20
+                    rate           100
+                    size           1 
+                  Invoice No.      25 
+                    Invoic date    12-10-2020 
+                    Name           tulas international school
+                    address         Dehradun 
+                    gst_in%          18 
+                    state          uttarakhand 
+                    gstin          
+                    state code     05
+                    name fo the provinyl sheet 0.5'x100'
+                    qui            1
+                    rate           2000
+                    size           1 
+                  Invoice No.      25 
+                    Invoic date    12-10-2020 
+                    Name           tulas international school
+                    address         Dehradun 
+                    gst_in%          18 
+                    state          uttarakhand 
+                    gstin          
+                    state code     05
+                    name fo the proflex 2x3
+                    qui            4
+                    rate           90
+                    size           1 
+                  Invoice No.      25 
+                    Invoic date    12-10-2020 
+                    Name           tulas international school
+                    address         Dehradun 
+                    gst_in%          18 
+                    state          uttarakhand 
+                    gstin          
+                    state code     05
+                    name fo the profee stacher
+                    qui            150
+                    rate           10
+                    size           1 
+                  Invoice No.      25 
+                    Invoic date    12-10-2020 
+                    Name           tulas international school
+                    address         Dehradun 
+                    gst_in%          18 
+                    state          uttarakhand 
+                    gstin          
+                    state code     05
+                    name fo the prodg print m-color
+                    qui            6
+                    rate           15
+                    size           1 
+                  Invoice No.      25 
+                    Invoic date    12-10-2020 
+                    Name           tulas international school
+                    address         Dehradun 
+                    gst_in%          18 
+                    state          uttarakhand 
+                    gstin          
+                    state code     05
+                    name fo the prodg print
+                    qui            64
+                    rate           15
+                    size           1 
+                  Invoice No.      25 
+                    Invoic date    12-10-2020 
+                    Name           tulas international school
+                    address         Dehradun 
+                    gst_in%          18 
+                    state          uttarakhand 
+                    gstin          
+                    state code     05
+                    name fo the progumming sheet
+                    qui            25
+                    rate           25
+                    size           1 
+                  Invoice No.      25 
+                    Invoic date    12-10-2020 
+                    Name           tulas international school
+                    address         Dehradun 
+                    gst_in%          18 
+                    state          uttarakhand 
+                    gstin          
+                    state code     05
+                    name fo the prov-card
+                    qui            200
+                    rate           3
+                    size           1 
+                  Invoice No.      25 
+                    Invoic date    12-10-2020 
+                    Name           tulas international school
+                    address         Dehradun 
+                    gst_in%          18 
+                    state          uttarakhand 
+                    gstin          
+                    state code     05
+                    name fo the prov-card
+                    qui            200
+                    rate           3
+                    size           1 
+                  Invoice No.      25 
+                    Invoic date    12-10-2020 
+                    Name           Tulas International school
+                    address         Dehradun 
+                    gst_in%          18 
+                    state          Uttarakhand 
+                    gstin          
+                    state code     05
+                    name fo the proVinyl Sheet 1.5'x1.5'
+                    qui            20
+                    rate           100
+                    size           1 
+                  Invoice No.      25 
+                    Invoic date    12-10-2020 
+                    Name           Tulas International school
+                    address         Dehradun 
+                    gst_in%          18 
+                    state          Uttarakhand 
+                    gstin          
+                    state code     05
+                    name fo the proVinyl Sheet 1.5'x1.5'
+                    qui            20
+                    rate           100
+                    size           1 
+                  Invoice No.      25 
+                    Invoic date    12-10-2020 
+                    Name           Tulas International school
+                    address         Dehradun 
+                    gst_in%          18 
+                    state          Uttarakhand 
+                    gstin          
+                    state code     05
+                    name fo the proVinyl Sheet 0.5'x100'
+                    qui            1
+                    rate           2000
+                    size           1 
+                  Invoice No.      25 
+                    Invoic date    12-10-2020 
+                    Name           Tulas International school
+                    address         Dehradun 
+                    gst_in%          18 
+                    state          Uttarakhand 
+                    gstin          
+                    state code     05
+                    name fo the proFlex 2x3
+                    qui            4
+                    rate           90
+                    size           1 
+                  Invoice No.      25 
+                    Invoic date    12-10-2020 
+                    Name           Tulas International school
+                    address         Dehradun 
+                    gst_in%          18 
+                    state          Uttarakhand 
+                    gstin          
+                    state code     05
+                    name fo the proFee Stacher
+                    qui            150
+                    rate           10
+                    size           1 
+                  Invoice No.      25 
+                    Invoic date    12-10-2020 
+                    Name           Tulas International school
+                    address         Dehradun 
+                    gst_in%          18 
+                    state          Uttarakhand 
+                    gstin          
+                    state code     05
+                    name fo the proDG Print m-color
+                    qui            6
+                    rate           15
+                    size           1 
+                  Invoice No.      25 
+                    Invoic date    12-10-2020 
+                    Name           Tulas International school
+                    address         Dehradun 
+                    gst_in%          18 
+                    state          Uttarakhand 
+                    gstin          
+                    state code     05
+                    name fo the proDG Print
+                    qui            64
+                    rate           15
+                    size           1 
+                  Invoice No.      25 
+                    Invoic date    12-10-2020 
+                    Name           Tulas International school
+                    address         Dehradun 
+                    gst_in%          18 
+                    state          Uttarakhand 
+                    gstin          
+                    state code     05
+                    name fo the proGumming Sheet
+                    qui            25
+                    rate           25
+                    size           1 
+                  Invoice No.      25 
+                    Invoic date    12-10-2020 
+                    Name           Tulas International school
+                    address         Dehradun 
+                    gst_in%          18 
+                    state          Uttarakhand 
+                    gstin          
+                    state code     05
+                    name fo the proV-Card
+                    qui            200
+                    rate           3
+                    size           1 
+                  Invoice No.      25 
+                    Invoic date    12-10-2020 
+                    Name           Tulas International school
+                    address         Dehradun 
+                    gst_in%          18 
+                    state          Uttarakhand 
+                    gstin          
+                    state code     05
+                    name fo the proV-Card
+                    qui            200
+                    rate           3
+                    size           1 
+                  Invoice No.      26 
+                    Invoic date    15-12-2020 
+                    Name           SIKKA INFRA PLANET PVTLTD
+                    address         DEHRADUN 
+                    gst_in%          12 
+                    state          UTTRAKHAND 
+                    gstin          05AATC5S229HIZO
+                    state code     05
+                    name fo the proFolder M-colov 300gsm Size A4
+                    qui            100
+                    rate           23
+                    size           1 
+                  Invoice No.      26 
+                    Invoic date    15-12-2020 
+                    Name           SIKKA INFRA PLANET PVTLTD
+                    address         DEHRADUN 
+                    gst_in%          12 
+                    state          UTTRAKHAND 
+                    gstin          05AATC5S229HIZO
+                    state code     05
+                    name fo the prov-card
+                    qui            100
+                    rate           3
+                    size           1 
+                  Invoice No.      27 
+                    Invoic date    16-12-2020 
+                    Name           SIKKA INFRA PLANET PVTLTD
+                    address         DEHRADUN 
+                    gst_in%          05AATC5S229HIZO 
+                    state          UTTRAKHAND 
+                    gstin          12
+                    state code     05
+                    name fo the prov-card
+                    qui            200
+                    rate           3
+                    size           1 
