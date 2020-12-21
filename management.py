@@ -6,8 +6,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 class Management:
     def __int__(self):
-        entry_values_list = [[466, 646], [646, 0], [646, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0],
-                             [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0]]
+
         self.data_of_entry = [
 
             [
