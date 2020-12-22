@@ -1355,3 +1355,27 @@
                     qui            200
                     rate           3
                     size           1 
+                  Invoice No.       
+                    Invoic date     
+                    Name           
+                    address          
+                    gst_in%           
+                    state           
+                    gstin          
+                    state code     
+                    name fo the prosdfkl
+                    qui            464
+                    rate           64
+                    size           64 
+                  Invoice No.       
+                    Invoic date     
+                    Name           
+                    address          
+                    gst_in%           
+                    state           
+                    gstin          
+                    state code     
+                    name fo the pro
+                    qui            646
+                    rate           4
+                    size           64 

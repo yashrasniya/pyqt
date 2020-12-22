@@ -8,6 +8,7 @@ from PyQt5 import QtWidgets, QtCore
 from PyQt5.QtWidgets import QMainWindow, QLineEdit, QApplication, QAction, QFileDialog
 from PyQt5.QtGui import QFont
 import setting
+import main1
 
 
 class my_cal(QMainWindow):
@@ -61,18 +62,18 @@ class my_cal(QMainWindow):
         self.y.clear()
         self.y.append(100)
 
-        print(open_file[1],open_file)
+        print(open_file[1], open_file)
         data = save.Show()
         product_data, customer_data = data.show_tabel(open_file[1])
         num = 0
 
-        print(product_data,customer_data)
+        print(product_data, customer_data)
         num = 0
         for entry in self.top_entry:
             entry.clear()
             entry.setText(customer_data[0][num])  # display customer data in entry
             num += 1
-        num=0
+        num = 0
         for v in product_data:
             self.entry()
             l = 0
@@ -101,7 +102,7 @@ class my_cal(QMainWindow):
         fileMenu.addAction(open_menu)
         fileMenu.addAction(save_as_pdf)
         # ======================================================
-        
+
         # =======================================================
         editMenu = menubar.addMenu('Edit')
         copy = editMenu.addMenu("Copy")
@@ -128,7 +129,7 @@ class my_cal(QMainWindow):
         # =======================================================
         # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         # ========================================================
-        menubar.show()# //////////////////////////////////////////
+        menubar.show()  # //////////////////////////////////////////
         # =======================================================
         # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         # ========================================================
@@ -223,12 +224,13 @@ class my_cal(QMainWindow):
             self.total.deleteLater()
         except AttributeError:
             print("erro")
-        self.total=QtWidgets.QLabel(self)
+        self.total = QtWidgets.QLabel(self)
         self.total.setFont(QFont('Arial', 15))
-        self.total.setGeometry(self.i[-1], self.y[-1]+50 + 5, 100, 30)
+        self.total.setGeometry(self.i[-1], self.y[-1] + 50 + 5, 100, 30)
 
         self.total.setText(" Total:0.0   Total withgst:0.0")
         self.total.show()
+
     def loop(self):
         # ---------------- for loopcution in side the entry-------------------------------------
 
@@ -271,14 +273,14 @@ class my_cal(QMainWindow):
                 print(":")
                 print("::")
                 pre = nass + ks
-                with_gst_total = nass+((nass * gst) / 100) + with_gst_total
+                with_gst_total = nass + ((nass * gst) / 100) + with_gst_total
 
                 self.totle_list_label[self.nos].setText(
-                    f"without gst:{'%.0f' % nass}    withgst:{nass+((nass * gst)/100)}")  # show the data as label
+                    f"without gst:{'%.0f' % nass}    withgst:{nass + ((nass * gst) / 100)}")  # show the data as label
                 self.totle_list_label[self.nos].adjustSize()
                 self.totle_list_label[self.nos].show()
-                #----------------------------------------full total label-----------------------------------------------
-                self.total.setText(f"Total:{'%.0f' % pre}    Total withgst:{ with_gst_total}")
+                # ----------------------------------------full total label-----------------------------------------------
+                self.total.setText(f"Total:{'%.0f' % pre}    Total withgst:{with_gst_total}")
                 self.total.adjustSize()
                 self.total.show()
 
@@ -313,8 +315,10 @@ class my_cal(QMainWindow):
     def creating_pdf(self):
         self.geting_all_values()
         path = QFileDialog.getExistingDirectory(self)
-        pdfmacker.Summit(self.geting_values_of_top_list,
-                         self.data_all_entry_list,path)
+        jj = main1.drawstring(self.data_all_entry_list,
+                    self.geting_values_of_top_list, path)
+        jj.__init__(self.data_all_entry_list,
+                    self.geting_values_of_top_list, path)
 
 
 def main():
@@ -325,7 +329,6 @@ def main():
         exit(app.exec_())
     except:
         print("----------Error---------")
-
 
 
 main()
