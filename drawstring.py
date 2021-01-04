@@ -2,7 +2,7 @@ import data_saver
 
 
 class drawstring:
-    def __int__(self):
+    def __init__(self):
         self.data = data_saver.data_saver("'name','x','y'", "data", "data")
         pass
 
@@ -18,7 +18,8 @@ class drawstring:
         self.collating_data()
         for two_d_array in self.location_points_list:
             pdf.setFontSize(font_number)
-            pdf.drawString(two_d_array[-1], two_d_array[-2], data_for_drawing[a])
+            print(two_d_array,len(data_for_drawing),len(self.location_points_list))
+            pdf.drawString(int(two_d_array[-2]), int(two_d_array[-1]), data_for_drawing[a])
             a += 1
         pass
 

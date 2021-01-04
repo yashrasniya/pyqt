@@ -8,7 +8,7 @@ from PyQt5 import QtWidgets, QtCore
 from PyQt5.QtWidgets import QMainWindow, QLineEdit, QApplication, QAction, QFileDialog
 from PyQt5.QtGui import QFont
 import setting
-import main1
+import xyz
 
 
 class my_cal(QMainWindow):
@@ -315,8 +315,10 @@ class my_cal(QMainWindow):
     def creating_pdf(self):
         self.geting_all_values()
         path = QFileDialog.getExistingDirectory(self)
-        jj = main1.drawstring(self.data_all_entry_list,
+        jj = xyz.drawstring(self.data_all_entry_list,
                     self.geting_values_of_top_list, path)
+#self.data_all_entry_list,
+                #    self.geting_values_of_top_list, path)
         jj.__init__(self.data_all_entry_list,
                     self.geting_values_of_top_list, path)
 

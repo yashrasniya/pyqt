@@ -25,7 +25,10 @@ class data_saver:
     def close(self):  # this fachtion for ending sqlite databass
         self.sqlite_data.commit()
         self.sqlite_data.close()
-
+    def delete_by_id(self,id):
+        self.start()
+        self.cursor.execute(f"DELETE FROM {self.tabel_name} WHERE id={id}")
+        self.close()
     def show(self):
         self.start()
         self.cursor.execute(f"SELECT * FROM {self.tabel_name}")

@@ -5,16 +5,14 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 
 class Management:
-    def __int__(self):
+    def __init__(self):
 
         self.data_of_entry = [
 
             [
                 [
                     ["yash", True, 999, 999, ], ["happy", True, 999, 999, ], ["3", True, 999, 999, ],
-                    ["4", True, 999, 999, ],
-                    ["1", True, 999, 999, ], ["2", True, 999, 999, ], ["3", True, 999, 999, ], ["4", True, 999, 999, ],
-                    ["1", True, 999, 999, ], ["2", True, 999, 999, ], ["3", True, 999, 999, ], ["4", True, 999, 999, ]
+                    ["4", True, 999, 999, ]
                 ],
                 [0, 0, 281, 401], [0, 0, 265, 544]
             ],
@@ -58,9 +56,9 @@ class Management:
         self.entry_data_filled_by_user = self.ui_mainwindow.finding_output(self.entry_list_name,
                                                                            do_you_want_to_set_value=False)
         a = 0
-        for data_of_entry in self.data_of_entry:
+        for _data_of_entry in self.data_of_entry:
 
-            for data_of_entry in data_of_entry[0]:
+            for data_of_entry in _data_of_entry[0]:
                 name_of_entry = data_of_entry[0]
                 x_y_data = self.entry_data_filled_by_user[a][0]
                
@@ -72,12 +70,15 @@ class Management:
                     self.updating_data("name", name_of_entry, a + 1)
                     self.updating_data("x", self.entry_data_filled_by_user[a][1], a + 1)
                     self.updating_data("y", self.entry_data_filled_by_user[a][0], a + 1)
-
+                    
+                    
                 a += 1
-
+        for deleteing_data in self.data_saverm.show()[a:]:
+            self.data_saverm.delete_by_id(deleteing_data[0])
         pass  # sqlite3.IntegrityError
 
     def updating_data(self, row_name, data_for_changering, oid_number):
+        
         self.data_saverm.update(f"{row_name}", f"'{data_for_changering}'", oid_number)
         pass
 
@@ -97,4 +98,3 @@ class Management:
 
 
 jj = Management()
-jj.__int__()
