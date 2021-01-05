@@ -317,10 +317,7 @@ class my_cal(QMainWindow):
         path = QFileDialog.getExistingDirectory(self)
         jj = xyz.drawstring(self.data_all_entry_list,
                     self.geting_values_of_top_list, path)
-#self.data_all_entry_list,
-                #    self.geting_values_of_top_list, path)
-        jj.__init__(self.data_all_entry_list,
-                    self.geting_values_of_top_list, path)
+
 
 
 def main():
