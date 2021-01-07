@@ -9,6 +9,7 @@ from PyQt5.QtWidgets import QMainWindow, QLineEdit, QApplication, QAction, QFile
 from PyQt5.QtGui import QFont
 import setting
 import xyz
+import data_saver
 
 
 class my_cal(QMainWindow):
@@ -146,11 +147,19 @@ class my_cal(QMainWindow):
         # -------------------------------------------label------------------------------------------------------------------
         label_values = [" Invoice number", "Date", "Name", "Addres", "Gst in Percentage", "Gst Number", "State",
                         "State Code"]
+        j = data_saver.data_saver(
+            "'name' TEXT,'state' BLOB,'x_max_value1' INT,'y_max_value1' INT", "upper_entry_data", "data")
+        label_values = j.show()
         self.label = []
         for name in label_values:
+            name = name[-4]
             self.label.append(QtWidgets.QLabel(self))
             self.label[-1].setText(f"{name}")
             self.label[-1].setGeometry(self.x_1[-1], 20, 100, 30)
+            self.label[-1].setStyleSheet("color: #433f5b;"
+                                         "text-shadow: 2px 2px 4px #000000;"
+                                         "font-family: Cursive;"
+                                         "font-size: 300%;")
             self.x_1.append(self.x_1[-1] + 100)
             self.label[-1].show()
         self.x_1.clear()
@@ -316,8 +325,7 @@ class my_cal(QMainWindow):
         self.geting_all_values()
         path = QFileDialog.getExistingDirectory(self)
         jj = xyz.drawstring(self.data_all_entry_list,
-                    self.geting_values_of_top_list, path)
-
+                            self.geting_values_of_top_list, path)
 
 
 def main():

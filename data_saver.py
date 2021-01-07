@@ -39,6 +39,8 @@ class data_saver:
 
     def creattabel(self):
         self.start()
+        # self.cursor.execute(f"CREATE TABLE {self.tabel_name}(ID INT PRIMARY KEY,{self.entry_data})")
+
         try:
 
             self.cursor.execute(f"CREATE TABLE {self.tabel_name}(ID INT PRIMARY KEY,{self.entry_data})")
@@ -47,9 +49,15 @@ class data_saver:
 
         self.close()
 
-    def update(self, row_name, data_for_changering, oid_number):
+    def update(self, row_name=None, data_for_changing=None, oid_number=None):
+
         self.start()
-        self.cursor.execute(f"UPDATE {self.tabel_name} set {row_name} = {data_for_changering} where ID = {oid_number}")
+        try:
+            self.cursor.execute(f"UPDATE {self.tabel_name} set {row_name}={data_for_changing} where ID = {oid_number}")
+        except:
+            self.cursor.execute(f"UPDATE {self.tabel_name} set {data_for_changing} where ID = {oid_number}")
+
+
         self.close()
 
     def insert(self, data_for_adding):
@@ -58,9 +66,9 @@ class data_saver:
         self.close()
 
 
-# jj = Data_saver("'name TEXT','x INT','y INT'", "goo", "aysh")
-# # jj.insert("2,'yash',5,5")
-# jj.update("'name TEXT'", "'happy'", "2")
+# jj = data_saver("'name' TEXT,'x' INT,'y' INT", "jja", "aysh")
+# jj.insert("3,'yash',5,5")
+# jj.update("'name'", "'name'='sdjaf',x = 6", "2")
 # print(jj.show())
 # print("ok")
 # data_saverm = data_saver("'name','x','y'", "data", "data")
