@@ -1,15 +1,15 @@
 import sys
 import threading
 from tkinter import *
-
+import setting
 import pdfmacker
 import save
 from PyQt5 import QtWidgets, QtCore
 from PyQt5.QtWidgets import QMainWindow, QLineEdit, QApplication, QAction, QFileDialog
 from PyQt5.QtGui import QFont
-import setting
+import management
 import xyz
-import data_saver
+import data_saver_in_mysql as data_saver
 
 
 class my_cal(QMainWindow):
@@ -121,8 +121,8 @@ class my_cal(QMainWindow):
         SettingsMenu = menubar.addMenu('Settings')
 
         location_menu = QAction('location', self)
-
-        location_menu.triggered.connect(lambda: setting.start())
+        self.w = None
+        location_menu.triggered.connect(self.sow_new_window)
 
         SettingsMenu.addAction(location_menu)
         # ========================================================
@@ -134,6 +134,22 @@ class my_cal(QMainWindow):
         # =======================================================
         # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         # ========================================================
+
+    def sow_new_window(self):
+        management_ = management.Management()
+
+        import sys
+        self.ui_mainwindow = setting.Ui_MainWindow(management_.setting_data_fetchall())
+        app = QtWidgets.QApplication(sys.argv)
+        MainWindow = QtWidgets.QMainWindow()
+        self.entry_list_name = self.ui_mainwindow.setupUi(MainWindow)
+        MainWindow.show()
+        try:
+            management_.display_data(self.ui_mainwindow, self.entry_list_name)
+        except IndexError:
+            pass
+        management_.saving_or_updating_data(self.ui_mainwindow, self.entry_list_name,
+                                            management_.setting_data_fetchall())
 
     def top_entrys(self):
 
@@ -147,9 +163,9 @@ class my_cal(QMainWindow):
         # -------------------------------------------label------------------------------------------------------------------
         label_values = [" Invoice number", "Date", "Name", "Addres", "Gst in Percentage", "Gst Number", "State",
                         "State Code"]
-        j = data_saver.data_saver(
-            "'name' TEXT,'state' BLOB,'x_max_value1' INT,'y_max_value1' INT", "upper_entry_data", "data")
-        label_values = j.show()
+        label_values = data_saver.data_saver(
+            "'name' TEXT,'state' BLOB,'x_max_value1' INT,'y_max_value1' INT", "upper_entry_data", "data1").show()
+        print(label_values)
         self.label = []
         for name in label_values:
             name = name[-4]
@@ -165,20 +181,15 @@ class my_cal(QMainWindow):
         self.x_1.clear()
         self.x_1.append(0)
         # -------------------------------entry box---------------------------------------------------
-        invoic_number = QLineEdit(self)
-        date = QLineEdit(self)
-        name = QLineEdit(self)
-        addres = QLineEdit(self)
-        gst_in_percentage = QLineEdit(self)
-        gst_number = QLineEdit(self)
-        state = QLineEdit(self)
-        state_code = QLineEdit(self)
-        self.top_entry = [invoic_number, date, name, addres, gst_in_percentage, gst_number, state, state_code]
-        for valu in self.top_entry:
-            valu.setGeometry(self.x_1[-1], self.y_1[-1], 100, 30)
+
+        self.top_entry = []
+
+        for valu in label_values:
+            self.top_entry.append(QLineEdit(self))
+            self.top_entry[-1].setGeometry(self.x_1[-1], self.y_1[-1], 100, 30)
             self.x_1.append(self.x_1[-1] + 100)
-            print(valu)
-            valu.show()
+            print(self.top_entry[-1])
+            self.top_entry[-1].show()
         self.list_for_product = ['Name',
                                  'Gst',
                                  'Size',
@@ -193,6 +204,7 @@ class my_cal(QMainWindow):
             self.list_of_product_pyqt[-1].setText(f"{value}")
             self.list_of_product_pyqt[-1].setGeometry(self.x_1[-1] + 5, self.y_1[-1] + 30, 100, 30)
             self.x_1.append(self.x_1[-1] + 100)
+
             self.list_of_product_pyqt[-1].show()
         print('-------------------2---')
 
@@ -214,8 +226,14 @@ class my_cal(QMainWindow):
             # text  boxs
             x = self.i[-1]
             en.append(QLineEdit(self))
+            # en.append(QtWidgets.QSpinBox(self))
 
             en[ii].setGeometry(x, self.y[-1] + 5, 100, 30)
+            en[ii].setStyleSheet("color: #433f5b;"
+                                 "text-shadow: 2px 2px 4px #000000;"
+                                 "font-family: Cursive;"
+                                 "font-size: 300%;"
+                                 "background-color: #FF7F50;")
             en[ii].show()
 
             self.i.append(self.i[-1] + 100)
@@ -241,37 +259,69 @@ class my_cal(QMainWindow):
         self.total.show()
 
     def loop(self):
-        # ---------------- for loopcution in side the entry-------------------------------------
+        # ---------------- for location in side the entry-------------------------------------
 
         time = 1  # wait for 1 sec
         self.get_qut = []  # list of entry3
         self.get_rate = []  # list of entry4
         self.get_size = []  # list of entry2
         self.get_gst = []
-        multiply = []  # list of adtion of entry3 + entry4
+        multiply = []  # list of addition of entry3 + entry4
+        print("1")
         for num in range(len(self.all_entry_list)):
+
             try:
                 if self.all_entry_list[num][-2].text() != "" and self.all_entry_list[num][-3].text() != "" and \
-                        self.all_entry_list[num][-1].text() != "":
+                        self.all_entry_list[num][-1].text() != "" and self.all_entry_list[num][-4].text() != "":
                     self.get_qut.append(float(self.all_entry_list[num][-2].text()))  # getting entry3
                     self.get_rate.append(float(self.all_entry_list[num][-1].text()))  # geting entry4
                     self.get_size.append(float(self.all_entry_list[num][-3].text()))
                     self.get_gst.append(float(self.all_entry_list[num][-4].text()))  # getting entry2
-                else:
-                    print(self.all_entry_list[num][-2].text())
-            except:
-                try:
-                    str(self.all_entry_list[num][-1].text())
-                    str(self.all_entry_list[num][-2].text())
-                    print("-------------------------------")
-                except:
+                elif self.all_entry_list[num][-2].text() == "" or self.all_entry_list[num][-3].text() == "" or \
+                        self.all_entry_list[num][-1].text() == "" or self.all_entry_list[num][-4].text() == "":
+                    list_2_value, list_3_value, list_1_value, list_4_value = self.all_entry_list[num][-2].text(), \
+                                                                             self.all_entry_list[num][-3].text(), \
+                                                                             self.all_entry_list[num][-1].text(), \
+                                                                             self.all_entry_list[num][-4].text()
+                    print("12\n454\n646\n16")
 
-                    print("something went wrong!")
+                    if self.all_entry_list[num][-2].text() == "":
+                        list_2_value = 1.0
+
+                    if self.all_entry_list[num][-3].text() == "":
+                        list_3_value = 1.0
+
+                    if self.all_entry_list[num][-1].text() == "":
+                        list_1_value = 1.0
+
+                    if self.all_entry_list[num][-4].text() == "":
+                        list_4_value = 1.0
+
+                    self.get_qut.append(float(list_2_value))  # getting entry3
+                    self.get_rate.append(float(list_3_value))  # geting entry4
+                    self.get_size.append(float(list_1_value))
+                    self.get_gst.append(float(list_4_value))
+                else:
+                    self.get_qut.append(1)  # getting entry3
+                    self.get_rate.append(1)  # geting entry4
+                    self.get_size.append(1)
+                    self.get_gst.append(1)
+
+            except:
+
+                self.get_qut.append(float(1))  # getting entry3
+                self.get_rate.append(float(1))  # geting entry4
+                self.get_size.append(float(1))
+                self.get_gst.append(float(1))
+                self.total.setText("enter the int value")
+
+
 
         try:
             for a in range(0, len(self.get_qut)):
                 print(a, "get")
                 print(self.get_qut, self.get_rate)
+
                 t = self.get_qut[a] * self.get_rate[a] * self.get_size[a]  # multiply qui and rate
 
                 multiply.append((t, self.get_gst[a]))
@@ -279,8 +329,6 @@ class my_cal(QMainWindow):
             ks = 0
             with_gst_total = 0
             for nass, gst in multiply:
-                print(":")
-                print("::")
                 pre = nass + ks
                 with_gst_total = nass + ((nass * gst) / 100) + with_gst_total
 
@@ -296,8 +344,12 @@ class my_cal(QMainWindow):
                 ks = pre
                 self.nos += 1
         except TypeError:
-            time = 5
-            print("error")
+
+            self.totle_list_label[self.nos].setText(
+                f"plzz enter integer value")  # show the data as label
+            self.totle_list_label[self.nos].adjustSize()
+            self.totle_list_label[self.nos].show()
+            print("dasfds")
             pass
 
         time = threading.Timer(time, self.loop)
@@ -331,6 +383,12 @@ class my_cal(QMainWindow):
 def main():
     app = QApplication(sys.argv)
     win = my_cal()
+    win.setStyleSheet("color: #433f5b;"
+                      "text-shadow: 2px 2px 4px #000000;"
+                      "font-family: Cursive;"
+                      "font-size: 300%;"
+                      "background-color: rgb(230, 230, 250);"
+                      )
     win.show()
     try:
         exit(app.exec_())

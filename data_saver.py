@@ -52,9 +52,13 @@ class data_saver:
     def update(self, row_name=None, data_for_changing=None, oid_number=None):
 
         self.start()
+        # self.cursor.execute(f"UPDATE {self.tabel_name} set {row_name}={data_for_changing} where ID = {oid_number}")
         try:
             self.cursor.execute(f"UPDATE {self.tabel_name} set {row_name}={data_for_changing} where ID = {oid_number}")
         except:
+            import sys
+            print(sys.exc_info())
+            print(f"UPDATE {self.tabel_name} set {data_for_changing} where ID = {oid_number}")
             self.cursor.execute(f"UPDATE {self.tabel_name} set {data_for_changing} where ID = {oid_number}")
 
 
@@ -67,8 +71,8 @@ class data_saver:
 
 
 # jj = data_saver("'name' TEXT,'x' INT,'y' INT", "jja", "aysh")
-# jj.insert("3,'yash',5,5")
-# jj.update("'name'", "'name'='sdjaf',x = 6", "2")
+# jj.insert("6,'yash',5,5")
+# jj.update("'", "'name'='yahs',x = 6", "2")
 # print(jj.show())
 # print("ok")
 # data_saverm = data_saver("'name','x','y'", "data", "data")

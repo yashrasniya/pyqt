@@ -62,7 +62,7 @@ class Ui_MainWindow(object):
                 self.horizontalLayout.append(QtWidgets.QHBoxLayout(self.items_list[-1]))
                 self.horizontalLayout[-1].setObjectName(f"{name}horizontalLayout")
                 entry_list.append(QtWidgets.QSpinBox(self.items_list[-1]))
-                entry_list[-1].setEnabled(enabled)
+                entry_list[-1].setEnabled(bool(enabled))
                 entry_list[-1].setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
                 entry_list[-1].setMaximum(maximum_number_x)
                 entry_list[-1].setObjectName(f"{name}_x")
@@ -79,7 +79,7 @@ class Ui_MainWindow(object):
                 # ==============================================================
                 self.scrollArea[-1].setWidget(self.scrollAreaWidgetContents[-1])
 
-        # =================================================================
+
 
 
 

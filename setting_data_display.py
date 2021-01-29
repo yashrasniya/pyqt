@@ -1,7 +1,6 @@
 import sys
 from PyQt5.QtWidgets import QMainWindow, QApplication, QWidget, QPushButton, QAction, QLineEdit, QMessageBox
 from PyQt5.QtGui import QIcon
-from PyQt5 import QtWidgets
 from PyQt5.QtCore import pyqtSlot
 import setting_data_saver_and_updating
 
@@ -25,32 +24,25 @@ class App(QMainWindow):
         self.textbox.resize(280, 40)
 
         # Create a button in the window
-        array=[]
-        apaa=[234,23454,235,23425,2]
-        b=1
-        for a in apaa:
-            array.append(QPushButton(f"{a}", self))
-            array[-1].move(20*b, 80*b)
-            array[-1].setObjectName(f"gog{a}")
-            b+=1
-            print(a)
+        self.button = QPushButton('Save and Exit', self)
+        self.button.move(20, 80)
+
         # connect button to function on_click
-            array[-1].clicked.connect(lambda state,x=a: self.on_click(x))
+        self.button.clicked.connect(lambda: setting_data_saver_and_updating.gogo(self.textbox.text()))
         self.textbox.setText("happy")
         self.show()
+        return self.textbox.text()
 
-    def on_click(self,a):
-        print(a)
+    @pyqtSlot()
+    def on_click(self):
+        self.textboxValue = self.textbox.text()
+        QMessageBox.question(self, 'Message - pythonspot.com', "You typed: " + self.textboxValue, QMessageBox.Ok,
+                             QMessageBox.Ok)
+        # self.textbox.setText("")
+        return self.textbox.text()
 
 
 
-
-
-
-app = QtWidgets.QApplication(sys.argv)
-ex = App()
-print(ex.initUI())
-sys.exit(app.exec_())
 
 # if __name__ == '__main__':
 #     app = QApplication(sys.argv)
